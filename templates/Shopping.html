@@ -1,0 +1,36 @@
+{% extends 'Base.html' %}
+
+
+{% block content %}
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-4">My Shop</h1>
+        <div class="list-group">
+          <a href="{% url 'HomePage' %}" class="list-group-item">All Items</a>
+          <a href="{% url 'HomePage' %}" class="list-group-item">Stickers</a>
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        </div>
+
+        {% block Shopblock %}
+        {% endblock %}
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+{% endblock %}

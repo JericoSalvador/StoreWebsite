@@ -1,0 +1,23 @@
+{% extends 'Shopping.html' %}
+
+    {% block Shopblock %}
+        <div class="row">
+
+          {% for item in item_list %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="{% url 'ReviewPage' itemslug=item.slug %}"><img class="card-img-top" src="{{ item.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{% url 'ReviewPage' itemslug=item.slug %}">{{ item }}</a>
+                </h4>
+                <h5>${{ item.getPrice }}</h5>
+                <p class="card-text">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+        <!-- /.row -->
+    {% endblock %}

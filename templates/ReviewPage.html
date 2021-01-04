@@ -1,0 +1,32 @@
+{% extends 'Shopping.html' %}
+
+{% block Shopblock %}
+
+    <div class="card mt-4">
+        <img class="card-img-top img-fluid" src="{{ item.image.url }}" alt="">
+        <div class="card-body">
+        <h3 class="card-title">{{ item }}</h3>
+        <h4>${{ item.getPrice }}</h4>
+        <p class="card-text"> {{ item.description }}</p>
+        <p class = "btn {% if item.getRating > 3.5 %} btn-success {% else %} btn-warning {% endif %}" >{{ item.getRating }} </p>
+        </div>
+    </div>
+
+    
+    <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+        Product Reviews
+        </div>
+        <div class="card-body">
+        {% for review in reviews %}
+        <p class = "btn {% if review.rating > 3.5 %} btn-success {% else %} btn-warning {% endif %} float-right" >{{ review.rating }} </p>
+        <p>{{ review.review }} </p>
+        <small class="text-muted">Posted by {{ review.user.username }} on {{ review.created_on }} </small>
+        <hr>
+        {% endfor %}
+        <a href="#" class="btn btn-success">Leave a Review</a>
+        </div>
+
+    </div>
+
+{% endblock %}
